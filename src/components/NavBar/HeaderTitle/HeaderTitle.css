@@ -1,0 +1,28 @@
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  padding-top: 4vh;
+}
+.header-title img {
+  max-width: 20%;
+  height: auto;
+}
+
+.header-main:hover .header-title {
+  opacity: 1;
+  top: -10px;
+}
+
+.header-main.header-hover .header-title {
+  opacity: 1;
+  top: 10px;
+}

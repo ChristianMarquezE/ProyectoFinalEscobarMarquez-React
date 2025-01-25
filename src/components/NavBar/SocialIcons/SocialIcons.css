@@ -1,0 +1,36 @@
+.header-main .social-icons2 .instagram-icon {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+.header-main .social-icons2 a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.header-main .social-icons2 a:hover {
+  opacity: 0.7;
+}
+.social-icons2 a {
+  color: var(--text-color);
+  margin: 0px 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.social-icons2 a:hover {
+  opacity: 0.7;
+}
+.social-icons2.show {
+  display: flex;
+}
+.contacto-link {
+  font-weight: normal;
+  font-size: 1;
+}
+.montserrat-light {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}

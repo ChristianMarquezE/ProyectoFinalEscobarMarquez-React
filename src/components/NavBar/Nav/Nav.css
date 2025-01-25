@@ -1,0 +1,13 @@
+.nav-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.montserrat-light {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}

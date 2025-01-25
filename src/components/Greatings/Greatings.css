@@ -1,0 +1,26 @@
+.Greatings {
+  text-align: center;
+  margin-top: 23vh;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content img {
+  width: 27%;
+  height: 27%;
+}
+
+.montserrat-light {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}

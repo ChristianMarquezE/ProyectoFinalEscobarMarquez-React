@@ -1,0 +1,23 @@
+.header-main:hover .nav-links a {
+  color: var(--text-color);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+.nav-links a.active {
+  text-decoration: underline;
+}
+.nav-links a:hover {
+  opacity: 0.7;
+}

@@ -1,0 +1,181 @@
+.montserrat-light {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.contacto-title {
+  text-align: center;
+}
+.contacto {
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contacto-info {
+  text-align: center;
+}
+
+.padding-bottom {
+  padding-bottom: 30vh;
+}
+.contacto-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 10vh;
+}
+.form-columns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.form-columns div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-columns div:last-child {
+  margin-right: 0;
+}
+.contacto h2 {
+  font-size: 2em;
+}
+
+.contacto p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+}
+
+.contact-form button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  color: #d8c5a6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  background: none;
+}
+.padding-right {
+  padding-right: 10vw;
+}
+.contact-form button p {
+  padding-right: 10px;
+}
+.contact-form button p:hover {
+  text-decoration: underline;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navigation {
+  margin: 20px;
+  text-align: center;
+  color: #d8c5a6;
+}
+
+.nav-link1 {
+  text-decoration: none;
+  color: #d8c5a6;
+  margin: 0 10px;
+}
+
+.nav-link1:hover {
+  text-decoration: underline;
+  color: #d8c5a6;
+}
+.contacto-info {
+  text-align: center;
+  margin-top: 10vh;
+}
+.margin-top {
+  margin-top: 30vh;
+}
+
+.contacto-info h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.mapa {
+  flex: 1;
+  text-align: center;
+}
+
+.mapa iframe {
+  border: 0;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.social-icons2.show {
+  display: flex;
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: var(--text-color);
+  margin: 3px 0;
+}
+
+.videos {
+  width: 100%;
+  height: 85vh;
+}
+
+.padding-videos {
+  margin-top: 105px;
+}
