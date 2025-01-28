@@ -21,7 +21,9 @@ function App() {
   return (
     <>
       <CartContextProvider>
-        <BrowserRouter>
+        <BrowserRouter
+          future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
+        >
           <Header>
             <Link to="/">
               <HeaderTitle />
