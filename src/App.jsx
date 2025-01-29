@@ -11,7 +11,7 @@ import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
-import { CartContextProvider } from './components/context/cartContext';
+import { CartContextProvider } from './components/Context/cartContext';
 import CartContainer from './components/CartWidget/CartContainer';
 import Contacto from './components/Contacto/Contacto';
 
