@@ -48,8 +48,10 @@ export default function Form() {
 
   return (
     <div className="form-checkout">
-      <h2 className='form-group'>Por favor rellene sus datos:</h2>
+    
+      
       <form>
+      <h2 className='form-group'>Para comprar, rellene sus datos:</h2>
         <div className="form-group">
           <label htmlFor="username">Nombre</label>
           <input
@@ -86,9 +88,9 @@ export default function Form() {
       {/* Conditional rendering for the order confirmation ticket */}  
       {orderID && (
         <div className="order-confirmation">
-          <h3>¡Compra finalizada!</h3>
+          <h3>Comparte tu ID de pedido, estás a un paso de terminar tu compra:</h3>
           <p>Tu ID de pedido es: <strong>{orderID}</strong></p>
-          <p>Comparte tu ID de pedido:</p>
+          <p>Compartelo acá:</p>
           <button onClick={() => window.open(`mailto:jorregor@udd.cl?subject=Mi ID de pedido&body=Mi ID de pedido es: ${orderID}`)}>Email</button>
           <button onClick={() => window.open(`https://www.instagram.com/jorregodesign/`)}>Instagram</button>
           <button onClick={handleReturnHome}>Volver al Inicio</button>
