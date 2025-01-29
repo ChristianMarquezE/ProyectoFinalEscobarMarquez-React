@@ -87,3 +87,11 @@ export async function exportProductsToDB() {
     console.log('Creado documento', docID.id);
   }
 }
+
+export async function createBuyOrder(orderData){
+  const newOrderDoc = 
+    await addDoc(collection(db, "orders"), orderData); 
+
+  return newOrderDoc.id
+}
+

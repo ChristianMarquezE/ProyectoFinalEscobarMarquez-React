@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import cartContext from '../context/cartContext';
+import cartContext from '../Context/cartContext';
 
 function CartWidget() {
   const context = useContext(cartContext);

@@ -3,7 +3,7 @@ import ItemCount from './ItemCount';
 import '../../index.css';
 import './ItemDetail.css';
 import { useContext, useState } from 'react';
-import cartContext from '../context/cartContext';
+import cartContext from '../Context/cartContext';
 
 function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
