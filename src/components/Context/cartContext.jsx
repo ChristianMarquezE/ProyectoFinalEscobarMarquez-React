@@ -20,12 +20,17 @@ export function CartContextProvider(props) {
     setCartItems(newCartState);
   }
 
-  function addItem({ price, id, title, img, count }) {
+  function addItem({ price, id, title, img, count, stock}) {
     const existingItem = cartItems.find((item) => item.id === id);
 
     if (existingItem) {
       existingItem.count += count;
-      setCartItems([...cartItems]);
+      if (existingItem.count <= stock) {
+        setCartItems([...cartItems]);
+      } else {
+        alert('No puedes agregar mas productos de lo que hay en stock');
+        existingItem.count -= count;
+      }
     } else {
       setCartItems([...cartItems, { id, title, img, count, price }]);
     }
@@ -44,16 +49,15 @@ export function CartContextProvider(props) {
   }
 
   return (
-    <cartContext.Provider 
+    <cartContext.Provider
       value={{
         cartItems,
         countItemsInCart,
         addItem,
         removeItem,
         clearCart,
-        getTotalPrice
+        getTotalPrice,
       }}
-      
     >
       {props.children}
     </cartContext.Provider>

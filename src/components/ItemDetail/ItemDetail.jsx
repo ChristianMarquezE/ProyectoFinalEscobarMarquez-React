@@ -11,7 +11,7 @@ function ItemDetail(props) {
   const { addItem } = useContext(cartContext);
 
   function onSubmitCount(count) {
-    addItem({ id, price, title, count, img });
+    addItem({ id, price, title, count, img, stock});
     setIsAddedToCart(true);
   }
 

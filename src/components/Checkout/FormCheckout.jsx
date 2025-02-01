@@ -11,13 +11,25 @@ export default function Form() {
     email: '',
   });
 
-  const [orderID, setOrderID] = useState(null); // New state for order ID visibility
-  const [isContacted, setIsContacted] = useState(false); // New state for button clicks
+  const [orderID, setOrderID] = useState(null);
+  const [isContacted, setIsContacted] = useState(false);
+  const [ageError, setAgeError] = useState(''); // State for age error message
 
   function onInputChange(evt) {
     const inputName = evt.target.name;
     const newUserData = { ...userData };
     newUserData[inputName] = evt.target.value;
+
+    // Validate age input
+    if (inputName === 'age') {
+      const age = parseInt(evt.target.value, 10);
+      if (age < 10 || age > 150) {
+        setAgeError('La edad debe estar entre 10 y 150 años.');
+      } else {
+        setAgeError('');
+      }
+    }
+
     setUserData(newUserData);
   }
 
@@ -25,6 +37,12 @@ export default function Form() {
 
   async function handleCheckout(evt) {
     evt.preventDefault();
+
+    // Check if age is valid before proceeding
+    if (userData.age < 10 || userData.age > 150) {
+      setAgeError('La edad debe estar entre 10 y 150 años.');
+      return;
+    }
 
     const orderData = {
       Comprador: {
@@ -39,12 +57,12 @@ export default function Form() {
     };
     setOrderID(null);
     const newOrderID = await createBuyOrder(orderData);
-    setOrderID(newOrderID); // Set the order ID to state
+    setOrderID(newOrderID);
   }
 
   const handleReturnHome = () => {
-    clearCart(); // Clear the shopping cart
-    window.location.href = '/'; // Redirect to home page
+    clearCart();
+    window.location.href = '/';
   };
 
   return (
@@ -69,6 +87,7 @@ export default function Form() {
         <div className="form-group">
           <label htmlFor="age">Edad</label>
           <input name="age" type="number" onChange={onInputChange} required />
+          {ageError && <p className="error-message">{ageError}</p>} {/* Display error message */}
         </div>
 
         <div className="form-group">
@@ -91,7 +110,6 @@ export default function Form() {
         </button>
       </form>
 
-      {/* Conditional rendering for the order confirmation ticket */}
       {orderID && (
         <div className="order-confirmation">
           <h3>¡ESTAS A UN PASO DE FINALIZAR TU COMPRA!</h3>
@@ -105,7 +123,7 @@ export default function Form() {
               window.open(
                 `mailto:jorregor@udd.cl?subject=Mi ID de pedido&body=Mi ID de pedido es: ${orderID}`
               );
-              setIsContacted(true); // Set state to true when email button is clicked
+              setIsContacted(true);
             }}
           >
             Email
@@ -113,7 +131,7 @@ export default function Form() {
           <button
             onClick={() => {
               window.open(`https://www.instagram.com/jorregodesign/`);
-              setIsContacted(true); // Set state to true when Instagram button is clicked
+              setIsContacted(true);
             }}
           >
             Instagram
