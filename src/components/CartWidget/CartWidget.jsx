@@ -7,7 +7,7 @@ function CartWidget() {
   return (
     <Link className="instagram-icon" to="/cart">
       <i className="fa-solid fa-cart-shopping"></i>
-      <span>{context.countItemsInCart()}</span>
+      {context.countItemsInCart() > 0 ? <span>{context.countItemsInCart()}</span> : ""}
     </Link>
   );
 }

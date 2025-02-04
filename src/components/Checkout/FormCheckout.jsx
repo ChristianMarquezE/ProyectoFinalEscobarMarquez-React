@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import cartContext from '../Context/cartContext';
 import { createBuyOrder } from '../../data/database';
 import './FormCheckout.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Form() {
   const [userData, setUserData] = useState({
@@ -20,7 +21,6 @@ export default function Form() {
     const newUserData = { ...userData };
     newUserData[inputName] = evt.target.value;
 
-
     if (inputName === 'age') {
       const age = parseInt(evt.target.value, 10);
       if (age < 10 || age > 150) {
@@ -38,7 +38,6 @@ export default function Form() {
   async function handleCheckout(evt) {
     evt.preventDefault();
 
-  
     if (userData.age < 10 || userData.age > 150) {
       setAgeError('La edad debe estar entre 10 y 150 años.');
       return;
@@ -58,6 +57,8 @@ export default function Form() {
     setOrderID(null);
     const newOrderID = await createBuyOrder(orderData);
     setOrderID(newOrderID);
+    const redirectURL = `/ticket/${newOrderID}`
+    useNavigate(redirectURL);
   }
 
   const handleReturnHome = () => {
@@ -87,7 +88,7 @@ export default function Form() {
         <div className="form-group">
           <label htmlFor="age">Edad</label>
           <input name="age" type="number" onChange={onInputChange} required />
-          {ageError && <p className="error-message">{ageError}</p>} {/* Display error message */}
+          {ageError && <p className="error-message">{ageError}</p>}
         </div>
 
         <div className="form-group">
@@ -145,3 +146,4 @@ export default function Form() {
     </div>
   );
 }
+

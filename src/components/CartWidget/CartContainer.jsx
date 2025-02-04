@@ -30,11 +30,21 @@ function CartContainer() {
           </div>
         ))
       )}
-      <span className='total-items'>{countItemsInCart()} Artículos en Total</span>
-      <span className='total-price'>{getTotalPrice()}$ Dólares en Total</span>
-      <button className="cart-button" onClick={clearCart}>
-        Eliminar todos los artículos
-      </button>
+      <span className="total-items">
+        {countItemsInCart()} Artículos en Total
+      </span>
+      {countItemsInCart() > 0 ? (
+        <span className="total-price">{getTotalPrice()}$ Dólares en Total</span>
+      ) : (
+        ''
+      )}
+      {countItemsInCart() > 0 ? (
+        <button className="cart-button" onClick={clearCart}>
+          Eliminar todos los artículos
+        </button>
+      ) : (
+        ''
+      )}
       {cartState ? <Form /> : ''}
     </div>
   );
