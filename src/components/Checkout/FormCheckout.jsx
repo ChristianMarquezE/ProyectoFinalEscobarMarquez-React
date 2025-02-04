@@ -13,14 +13,14 @@ export default function Form() {
 
   const [orderID, setOrderID] = useState(null);
   const [isContacted, setIsContacted] = useState(false);
-  const [ageError, setAgeError] = useState(''); // State for age error message
+  const [ageError, setAgeError] = useState('');
 
   function onInputChange(evt) {
     const inputName = evt.target.name;
     const newUserData = { ...userData };
     newUserData[inputName] = evt.target.value;
 
-    // Validate age input
+
     if (inputName === 'age') {
       const age = parseInt(evt.target.value, 10);
       if (age < 10 || age > 150) {
@@ -38,7 +38,7 @@ export default function Form() {
   async function handleCheckout(evt) {
     evt.preventDefault();
 
-    // Check if age is valid before proceeding
+  
     if (userData.age < 10 || userData.age > 150) {
       setAgeError('La edad debe estar entre 10 y 150 años.');
       return;
@@ -136,7 +136,7 @@ export default function Form() {
           >
             Instagram
           </button>
-          <p>El vendedor se comunicará a la brevedad</p>
+          <p>El vendedor se comunicará a la brevedad.</p>
           <button onClick={handleReturnHome} disabled={!isContacted}>
             Volver al Inicio
           </button>

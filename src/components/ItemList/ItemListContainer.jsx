@@ -9,49 +9,49 @@ import Loader from '../Loader/Loader';
 
 function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
   const { catid } = useParams();
   const { colid } = useParams();
 
   useEffect(() => {
-    setLoading(true); // Set loading to true before fetching
+    setLoading(true); 
     if (catid === undefined && colid === undefined) {
       getAsyncData()
         .then((respuesta) => {
           setProducts(respuesta);
-          setLoading(false); // Set loading to false after fetching
+          setLoading(false);
         })
         .catch((error) => {
           alert(error);
-          setLoading(false); // Set loading to false on error
+          setLoading(false);
         });
     }
     if (catid !== undefined) {
       getAsyncItemsByCategory(catid)
         .then((respuesta) => {
           setProducts(respuesta);
-          setLoading(false); // Set loading to false after fetching
+          setLoading(false);
         })
         .catch((error) => {
           alert(error);
-          setLoading(false); // Set loading to false on error
+          setLoading(false);
         });
     }
     if (catid === undefined && colid !== undefined) {
       getAsyncItemsByColeccion(colid)
         .then((respuesta) => {
           setProducts(respuesta);
-          setLoading(false); // Set loading to false after fetching
+          setLoading(false);
         })
         .catch((error) => {
           alert(error);
-          setLoading(false); // Set loading to false on error
+          setLoading(false); 
         });
     }
   }, [catid, colid]);
 
   if (loading) {
-    return <Loader />; // Show loader while loading
+    return <Loader />;
   }
 
   return (

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Nav from './components/NavBar/Nav/Nav';
 import Li from './components/NavBar/Li/Li';
 import NavLinks from './components/NavBar/NavLinks/NavLinks';
@@ -16,7 +15,6 @@ import CartContainer from './components/CartWidget/CartContainer';
 import Contacto from './components/Contacto/Contacto';
 
 function App() {
-  const [estado, setEstado] = useState(true);
 
   return (
     <>
@@ -38,10 +36,10 @@ function App() {
                   </NavLink>
                   <MenuPlegable>
                     <Li texto="Praia" to="/coleccion/praia" />
-                    <Li texto="Éclat Céleste" to="/coleccion/eclatceleste" />
+                    <Li texto="Éclat Céleste" to="/coleccion/eclat-celeste" />
                     <Li
                       texto="Resplandor del desierto"
-                      to="/coleccion/resplandordeldesierto"
+                      to="/coleccion/resplandor-del-desierto"
                     />
                     <Li texto="SastrO" to="/coleccion/sastro" />
                     <Li texto="Retrofutura" to="/coleccion/retrofutura" />

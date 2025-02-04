@@ -1,10 +1,12 @@
 import Button from '../CardProducts/Button';
 import '../CardProducts/CardProduct.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Item(props) {
-  const { price, title, text, img, id, discount, stock, freeDelivery } = props;
+  const { price, title, text, img, id, discount, freeDelivery } = props;
 
   const classNameCard = `card ${freeDelivery ? 'card_accent' : ''}`;
+  const repartoGratis = freeDelivery ? 'Producto con envío gratis' : '';
+  const precioOferta = discount ? Math.floor(price - (price * discount / 100)) : price;
   return (
     <div className={classNameCard}>
       <img src={img} alt="product img" />
@@ -16,9 +18,10 @@ function Item(props) {
             style={{ color: discount ? 'green' : 'inherit' }}
             className="card-price"
           >
-            $ {price}
+            $ {precioOferta}
           </p>
-          {discount && 'Producto en oferta!'}
+          <p className='card-text'>{discount && '¡Producto en oferta!'}</p>
+          <p className='card-text'>{repartoGratis && 'Envío gratis'}</p>
         </div>
         <Link to={`/item/${id}`}>
           <Button>Ver Detalle</Button>
@@ -29,4 +32,3 @@ function Item(props) {
 }
 
 export default Item;
-//rfce

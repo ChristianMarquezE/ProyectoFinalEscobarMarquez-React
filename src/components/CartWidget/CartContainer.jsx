@@ -13,7 +13,7 @@ function CartContainer() {
   }, [cartItems]);
 
   return (
-    <div className="cart-container">
+    <div className="cart-container montserrat-light">
       <h1>Tu carrito</h1>
       {cartItems.length === 0 ? (
         <p>El carrito está vacío</p>

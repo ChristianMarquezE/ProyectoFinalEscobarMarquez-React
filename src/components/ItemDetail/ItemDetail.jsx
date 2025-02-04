@@ -7,8 +7,9 @@ import cartContext from '../Context/cartContext';
 
 function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const { price, title, coleccion, img, stock, id } = props;
+  const { price, title, coleccion, img, stock, id, detail, discount } = props;
   const { addItem } = useContext(cartContext);
+  const precioOferta = discount ? Math.floor(price - (price * discount / 100)) : price;
 
   function onSubmitCount(count) {
     addItem({ id, price, title, count, img, stock});
@@ -16,14 +17,15 @@ function ItemDetail(props) {
   }
 
   return (
-    <div className="item-detail-container">
+    <div className="item-detail-container montserrat-light">
       <div className="item-detail-card">
         <img className="item-detail-image" src={img} alt="product img" />
         <div className="item-detail-info">
           <h3 className="item-detail-title">{title}</h3>
-          <p className="item-detail-text">Stock: {stock}</p>
-          <p className="item-detail-price">$ {price}</p>
-          <p className="item-detail-description">Colección: {coleccion} </p>
+          <p className="item-detail-description">Stock: {stock}</p>
+          <p className="item-detail-price" style={{ color: discount ? 'green' : 'inherit' }}>$ {precioOferta} {discount ? `(${discount} % OFF)` : ''}</p>
+          <p className="item-detail-description"><strong>Colección: {coleccion}</strong> </p>
+          <p className="item-detail-text">{detail}</p>  
         </div>
         <div className="item-count-container">
           {isAddedToCart ? (

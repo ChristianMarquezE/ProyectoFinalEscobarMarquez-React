@@ -1,5 +1,5 @@
 import './HeaderTitle.css';
-function HeaderTitle(props) {
+function HeaderTitle() {
   return (
     <div className="header-title">
       <img

@@ -1,7 +1,7 @@
 .header-main {
-  display: flex; /* Usar flexbox para alinear elementos */
-  justify-content: space-between; /* Espacio entre el título, la navegación y los íconos */
-  align-items: center; /* Centrar verticalmente */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
   position: absolute;
   width: 100%;
   top: 0;

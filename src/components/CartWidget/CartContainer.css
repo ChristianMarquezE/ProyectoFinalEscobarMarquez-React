@@ -70,16 +70,16 @@
   background-color: #333;
 }
 
-/* New styles for total price and total items */
+
 .total-price {
   font-size: 1.5em;
   font-weight: bold;
-  color: #4CAF50; /* Green color for emphasis */
+  color: #4CAF50; 
   margin-top: 20px;
 }
 
 .total-items {
   font-size: 1.2em;
-  color: #333; /* Darker color for contrast */
+  color: #333;
   margin-top: 10px;
 }
