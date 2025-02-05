@@ -4,6 +4,7 @@ import { createBuyOrder } from '../../data/database';
 import './FormCheckout.css';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Form() {
   const [userData, setUserData] = useState({
     username: '',
@@ -13,8 +14,8 @@ export default function Form() {
   });
 
   const [orderID, setOrderID] = useState(null);
-  const [isContacted, setIsContacted] = useState(false);
   const [ageError, setAgeError] = useState('');
+  const navigateTo = useNavigate();
 
   function onInputChange(evt) {
     const inputName = evt.target.name;
@@ -58,7 +59,8 @@ export default function Form() {
     const newOrderID = await createBuyOrder(orderData);
     setOrderID(newOrderID);
     const redirectURL = `/ticket/${newOrderID}`
-    useNavigate(redirectURL);
+    navigateTo(redirectURL);
+    
   }
 
   const handleReturnHome = () => {
@@ -146,4 +148,3 @@ export default function Form() {
     </div>
   );
 }
-

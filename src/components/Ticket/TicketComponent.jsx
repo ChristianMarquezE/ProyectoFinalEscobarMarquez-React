@@ -1,27 +1,28 @@
 import React from 'react';
-import { useParams, useState } from 'react-router-dom';
+import { useParams } from 'react-router';
 import '../Checkout/FormCheckout';
+import './TicketComponent.css';
+import { useState } from 'react';
 
 export default function TicketComponent() {
-  const { id } = useParams();
+  const ticketid = useParams().ticketid;
   const [isContacted, setIsContacted] = useState(false);
   const handleReturnHome = () => {
     clearCart();
     window.location.href = '/';
   };
-
   return (
-    <div className="order-confirmation">
+    <div className="order-confirmation margin-top">
       <h3>¡ESTAS A UN PASO DE FINALIZAR TU COMPRA!</h3>
       <p>Comparte tu ID de compra:</p>
       <p>
-        ID N°: <strong>{id}</strong>
+        ID N°: <strong>{ticketid}</strong>
       </p>
 
       <button
         onClick={() => {
           window.open(
-            `mailto:jorregor@udd.cl?subject=Mi ID de pedido&body=Mi ID de pedido es: ${orderID}`
+            `mailto:jorregor@udd.cl?subject=Mi ID de pedido&body=Mi ID de pedido es: ${ticketid}`
           );
           setIsContacted(true);
         }}
@@ -37,7 +38,11 @@ export default function TicketComponent() {
         Instagram
       </button>
       <p>El vendedor se comunicará a la brevedad.</p>
-      <button onClick={handleReturnHome} disabled={!isContacted}>
+      <button
+        className={isContacted ? '' : 'button-disabled'}
+        onClick={handleReturnHome}
+        disabled={!isContacted}
+      >
         Volver al Inicio
       </button>
     </div>
