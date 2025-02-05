@@ -58,6 +58,7 @@ export default function Form() {
     setOrderID(null);
     const newOrderID = await createBuyOrder(orderData);
     setOrderID(newOrderID);
+    clearCart();
     const redirectURL = `/ticket/${newOrderID}`
     navigateTo(redirectURL);
     

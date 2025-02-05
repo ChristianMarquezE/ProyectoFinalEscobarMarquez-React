@@ -1,6 +1,6 @@
 import './Greatings.css';
 
-function Greatings(props) {
+function Greatings() {
   return (
     <div className="hero-content">
       <img
