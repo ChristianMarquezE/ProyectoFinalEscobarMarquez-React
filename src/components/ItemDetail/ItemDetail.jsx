@@ -9,10 +9,12 @@ function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { price, title, coleccion, img, stock, id, detail, discount } = props;
   const { addItem } = useContext(cartContext);
-  const precioOferta = discount ? Math.floor(price - (price * discount / 100)) : price;
+  const precioOferta = discount
+    ? Math.floor(price - (price * discount) / 100)
+    : price;
 
   function onSubmitCount(count) {
-    addItem({ id, price, title, count, img, stock});
+    addItem({ id, price, title, count, img, stock });
     setIsAddedToCart(true);
   }
 
@@ -22,19 +24,33 @@ function ItemDetail(props) {
         <img className="item-detail-image" src={img} alt="product img" />
         <div className="item-detail-info">
           <h3 className="item-detail-title">{title}</h3>
-          <p className="item-detail-description">Stock: {stock}</p>
-          <p className="item-detail-price" style={{ color: discount ? 'green' : 'inherit' }}>$ {precioOferta} {discount ? `(${discount} % OFF)` : ''}</p>
-          <p className="item-detail-description"><strong>Colección: {coleccion}</strong> </p>
-          <p className="item-detail-text">{detail}</p>  
+          {stock === 0 ? (
+            <p className="item-detail-description">Producto sin stock...</p>
+          ) : (
+            <p className="item-detail-description">Stock: {stock}</p>
+          )}
+          <p
+            className="item-detail-price"
+            style={{ color: discount ? 'green' : 'inherit' }}
+          >
+            $ {precioOferta} {discount ? `(${discount} % OFF)` : ''}
+          </p>
+          <p className="item-detail-description">
+            <strong>Colección: {coleccion}</strong>{' '}
+          </p>
+          <p className="item-detail-text">{detail}</p>
         </div>
         <div className="item-count-container">
-          {isAddedToCart ? (
+          {stock === 0 ? (
+            ''
+          ) : isAddedToCart ? (
             <Link to="/cart">
               <button>Ver Carrito</button>
             </Link>
           ) : (
             <ItemCount onSubmitCount={onSubmitCount} max={stock} />
           )}
+          {}
         </div>
       </div>
     </div>
