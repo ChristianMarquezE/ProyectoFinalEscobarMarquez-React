@@ -7,7 +7,7 @@ import cartContext from '../Context/cartContext';
 
 function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const { price, title, coleccion, img, stock, id, detail, discount } = props;
+  const { price, title, coleccion, img, stock, id, detail, discount, freeDelivery } = props;
   const { addItem } = useContext(cartContext);
   const precioOferta = discount
     ? Math.floor(price - (price * discount) / 100)
@@ -35,6 +35,8 @@ function ItemDetail(props) {
           >
             $ {precioOferta} {discount ? `(${discount} % OFF)` : ''}
           </p>
+          {freeDelivery ? <p className='item-detail-freeDelivery'>(Despacho gratis)</p> : ""}
+
           <p className="item-detail-description">
             <strong>Colección: {coleccion}</strong>{' '}
           </p>
