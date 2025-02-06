@@ -11,24 +11,21 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDkrPOoPvCEtJsobyjD5DU4K-Nr2gJSmA4',
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: 'jorrego-ecommerce.firebaseapp.com',
   projectId: 'jorrego-ecommerce',
   storageBucket: 'jorrego-ecommerce.firebasestorage.app',
   messagingSenderId: '935755495945',
-  appId: '1:935755495945:web:38edd6ac6d221ca353d6d8',
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-
 export default async function getAsyncData() {
   const collectionRef = collection(db, 'products');
   const productsSnapshot = await getDocs(collectionRef);
-
- 
 
   const documentsData = productsSnapshot.docs.map((doc) => {
     const fullData = doc.data();
@@ -45,13 +42,12 @@ export async function getAsyncItemById(itemID) {
   const docData = docSnapshot.data();
   return docData;
 }
+
 export async function getAsyncItemsByCategory(catID) {
   const productsColRef = collection(db, 'products');
   const q = query(productsColRef, where('category', '==', catID));
 
   const productsSnapshot = await getDocs(q);
-
- 
 
   const documentsData = productsSnapshot.docs.map((doc) => {
     const fullData = doc.data();
@@ -67,8 +63,6 @@ export async function getAsyncItemsByColeccion(colID) {
   const q = query(productsColRef, where('coleccion', '==', colID));
 
   const productsSnapshot = await getDocs(q);
-
-
 
   const documentsData = productsSnapshot.docs.map((doc) => {
     const fullData = doc.data();
@@ -94,4 +88,3 @@ export async function createBuyOrder(orderData){
 
   return newOrderDoc.id
 }
-
