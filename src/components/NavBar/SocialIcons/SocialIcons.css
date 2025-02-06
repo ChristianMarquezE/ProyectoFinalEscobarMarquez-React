@@ -34,3 +34,7 @@
   font-weight: 200;
   font-style: normal;
 }
+
+.social-icons2 .active {
+  text-decoration: underline !important;
+}

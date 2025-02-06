@@ -3,16 +3,16 @@ import { useParams } from 'react-router';
 import '../Checkout/FormCheckout';
 import './TicketComponent.css';
 import { useState } from 'react';
-import TicketContext from '../Context/ticketContext'; // Import the TicketContext
+import TicketContext from '../Context/ticketContext';
 
 export default function TicketComponent() {
   const { ticketid } = useParams();
-  const { setTicketid } = useContext(TicketContext); // Access setTicketid from context
+  const { setTicketid } = useContext(TicketContext);
 
   const [isContacted, setIsContacted] = useState(false);
 
   useEffect(() => {
-    setTicketid(ticketid); // Set the ticketid in context when the component mounts
+    setTicketid(ticketid);
   }, [ticketid, setTicketid]);
 
   const handleReturnHome = () => {

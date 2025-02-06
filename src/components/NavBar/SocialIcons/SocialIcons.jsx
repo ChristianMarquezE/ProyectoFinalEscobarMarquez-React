@@ -1,12 +1,12 @@
 import './SocialIcons.css';
 import '../Nav/Nav.css';
 import { Link, NavLink } from 'react-router-dom';
-import { useContext } from 'react'; // Correctly import useContext from react
+import { useContext } from 'react';
 import CartWidget from '../../CartWidget/CartWidget';
-import TicketContext from '../../Context/ticketContext'; // Import the TicketContext
+import TicketContext from '../../Context/ticketContext';
 
 function SocialIcons() {
-  const { ticketid } = useContext(TicketContext); // Access ticketid from context
+  const { ticketid } = useContext(TicketContext);
 
   return (
     <div className="social-icons2 montserrat-light">
