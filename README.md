@@ -74,8 +74,10 @@ Esto iniciará el servidor de desarrollo y podrás acceder a la aplicación en `
 1. React JS
 2. JavaScript
 3. CSS
-4. Vite
-5. ESLint
+4. HTML
+5. Vite
+6. ESLint
+   
 
 ## Desarrollo
 
