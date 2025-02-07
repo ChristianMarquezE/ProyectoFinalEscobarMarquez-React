@@ -32,7 +32,7 @@ export function CartContextProvider(props) {
         existingItem.count -= count;
       }
     } else {
-      setCartItems([...cartItems, { id, title, img, count, price, freeDelivery}]);
+      setCartItems([...cartItems, { id, title, img, count, price, freeDelivery }]);
     }
   }
 
