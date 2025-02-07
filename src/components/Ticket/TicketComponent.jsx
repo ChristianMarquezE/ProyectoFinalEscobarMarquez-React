@@ -16,7 +16,6 @@ export default function TicketComponent() {
   }, [ticketid, setTicketid]);
 
   const handleReturnHome = () => {
-    clearCart();
     window.location.href = '/';
   };
 
