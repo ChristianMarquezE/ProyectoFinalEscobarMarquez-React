@@ -4,6 +4,7 @@ import '../Checkout/FormCheckout';
 import './TicketComponent.css';
 import { useState } from 'react';
 import TicketContext from '../Context/ticketContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function TicketComponent() {
   const { ticketid } = useParams();
@@ -14,9 +15,11 @@ export default function TicketComponent() {
   useEffect(() => {
     setTicketid(ticketid);
   }, [ticketid, setTicketid]);
+  const navigateTo = useNavigate();
 
   const handleReturnHome = () => {
-    window.location.href = '/';
+    const redirectURL = `/`
+    navigateTo(redirectURL);
   };
 
   return (
