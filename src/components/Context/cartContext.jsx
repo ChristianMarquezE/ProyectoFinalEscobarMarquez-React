@@ -10,7 +10,7 @@ export function CartContextProvider(props) {
 
     cartItems.forEach((item) => {
       const discountedPrice = item.discount 
-        ? item.price - (item.price * item.discount / 100) 
+        ? Math.floor(item.price - (item.price * item.discount / 100)) 
         : item.price;
       totalPrice += item.count * discountedPrice;
     });
