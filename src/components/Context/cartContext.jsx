@@ -9,8 +9,12 @@ export function CartContextProvider(props) {
     let totalPrice = 0;
 
     cartItems.forEach((item) => {
-      totalPrice += item.count * item.price;
+      const discountedPrice = item.discount 
+        ? item.price - (item.price * item.discount / 100) 
+        : item.price;
+      totalPrice += item.count * discountedPrice;
     });
+
 
     return totalPrice;
   }
@@ -20,7 +24,8 @@ export function CartContextProvider(props) {
     setCartItems(newCartState);
   }
 
-  function addItem({ price, id, title, img, count, stock, freeDelivery}) {
+  function addItem({ price, id, title, img, count, stock, freeDelivery, discount }) {
+
     const existingItem = cartItems.find((item) => item.id === id);
 
     if (existingItem) {
@@ -32,7 +37,8 @@ export function CartContextProvider(props) {
         existingItem.count -= count;
       }
     } else {
-      setCartItems([...cartItems, { id, title, img, count, price, freeDelivery}]);
+        setCartItems([...cartItems, { id, title, img, count, price, freeDelivery, discount }]);
+
     }
   }
 

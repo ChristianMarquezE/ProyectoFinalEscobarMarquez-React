@@ -22,7 +22,7 @@ function Item(props) {
           >
             $ {precioOferta}
           </p>
-          <p className="card-text">{discount && '¡Producto en oferta!'}</p>
+          {discount > 0 ? <p className="card-text">¡Producto en oferta!</p> : ""}
           <p className="card-text">{repartoGratis && 'Envío gratis'}</p>
           {stock === 0 ? <p className="card-text">Sin stock</p> : ''}
         </div>

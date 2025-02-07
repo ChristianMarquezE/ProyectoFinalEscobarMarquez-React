@@ -12,7 +12,6 @@ function CartContainer() {
     setCartState(cartItems.length > 0);
   }, [cartItems]);
 
-
   const allItemsFreeDelivery = () => {
     return cartItems.every((item) => item.freeDelivery === true);
   };
@@ -27,9 +26,17 @@ function CartContainer() {
           <div key={item.id} className="cart-item-card">
             <img src={item.img} alt={item.title} className="cart-item-image" />
             <h3 className="cart-item-title">{item.title}</h3>
-            <p className="cart-item-price">Precio: ${item.price}</p>
+            {item.discount > 0 ? <p className="cart-item-price">Precio normal: ${item.price}</p> : ""}
+            <p className="cart-item-price">Precio: ${item.discount ? (Math.floor(item.price - (item.price * item.discount) / 100)) + ` (${item.discount}% OFF)` : item.price}</p>
             <p>Unidades: {item.count}</p>
-            {item.freeDelivery ?  <p className='cart-item-freeDelivery'> <strong>Envío gratis </strong></p> : "" }
+            {item.freeDelivery ? (
+              <p className="cart-item-freeDelivery">
+                {' '}
+                <strong>Envío gratis </strong>
+              </p>
+            ) : (
+              ''
+            )}
             <button className="cart-button" onClick={() => removeItem(item.id)}>
               Eliminar
             </button>
