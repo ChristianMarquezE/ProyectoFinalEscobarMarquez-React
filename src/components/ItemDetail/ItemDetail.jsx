@@ -14,7 +14,7 @@ function ItemDetail(props) {
     : price;
 
   function onSubmitCount(count) {
-    addItem({ id, price, title, count, img, stock });
+    addItem({ id, price, title, count, img, stock, freeDelivery });
     setIsAddedToCart(true);
   }
 

@@ -1,10 +1,10 @@
 import Item from '../ItemList/Item';
 import FlexContainer from './FlexContainer';
-import '../../index.css';
+import '../../App.css';
 function ItemList(props) {
   return (
-    <div className="margin-top1 montserrat-light">
-      <h2 className='margin-bottom'>{props.greeting}</h2>
+    <div className="padding-top1 montserrat-light fondo">
+      <h2 className='margin-bottom padding-top2'>{props.greeting}</h2>
       <FlexContainer>
         {props.products.map((item) => (
           <Item key={item.id} {...item} />

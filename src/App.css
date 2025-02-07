@@ -3,8 +3,9 @@
   padding: 0;
 }
 
-.margin-top1 {
-  margin-top: 16vh;
+.padding-top1 {
+  padding-top: 10vh;
+  padding-bottom: 28vh;
 }
 .montserrat-light {
   font-family: 'Montserrat', serif;
@@ -15,4 +16,12 @@
 .margin-bottom{
   margin-bottom: 2vw;
   margin-left: 3vw;
+}
+
+.fondo{
+  background-color: #f9f9f9;
+}
+
+.padding-top2{
+  padding-top: 5vh;
 }

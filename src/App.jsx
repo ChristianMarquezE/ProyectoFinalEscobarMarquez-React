@@ -50,6 +50,7 @@ function App() {
                   </div>
                   <Li texto="Joyería" to="category/joyeria" />
                   <Li texto="Vestidos" to="category/vestidos" />
+                  <Li texto="Jumpsuits" to="category/jumpsuits" />
                 </NavLinks>
               </Nav>
               <SocialIcons />

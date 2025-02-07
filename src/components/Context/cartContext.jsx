@@ -20,7 +20,7 @@ export function CartContextProvider(props) {
     setCartItems(newCartState);
   }
 
-  function addItem({ price, id, title, img, count, stock}) {
+  function addItem({ price, id, title, img, count, stock, freeDelivery}) {
     const existingItem = cartItems.find((item) => item.id === id);
 
     if (existingItem) {
@@ -32,7 +32,7 @@ export function CartContextProvider(props) {
         existingItem.count -= count;
       }
     } else {
-      setCartItems([...cartItems, { id, title, img, count, price }]);
+      setCartItems([...cartItems, { id, title, img, count, price, freeDelivery}]);
     }
   }
 
