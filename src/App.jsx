@@ -1,23 +1,29 @@
-import Nav from "./components/NavBar/Nav/Nav";
+import "./App.css";
+// 1. Tus componentes locales (Asegúrate de que los nombres no choquen)
+import MiNavLocal from "./components/NavBar/Nav/Nav"; // Renombrado para evitar conflicto
 import Li from "./components/NavBar/Li/Li";
 import NavLinks from "./components/NavBar/NavLinks/NavLinks";
 import MenuPlegable from "./components/NavBar/MenuPlegable/MenuPlegable";
 import Header from "./components/NavBar/Header/Header";
 import HeaderTitle from "./components/NavBar/HeaderTitle/HeaderTitle";
 import SocialIcons from "./components/NavBar/SocialIcons/SocialIcons";
-import "./App.css";
+
+// 2. Contenedores y Lógica
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import TicketComponent from "./components/Ticket/TicketComponent";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
-import { CartContextProvider } from "./components/Context/cartContext";
-import { TicketContextProvider } from "./components/Context/ticketContext";
 import CartContainer from "./components/CartWidget/CartContainer";
 import Contacto from "./components/Contacto/Contacto";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
+// 3. Contexto
+import { CartContextProvider } from "./components/Context/cartContext";
+import { TicketContextProvider } from "./components/Context/ticketContext";
+
+// 4. React Router Dom (Unificado en una sola línea)
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+
+// 5. Bootstrap (Unificado)
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 function App() {
   return (
     <>
