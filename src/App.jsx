@@ -1,6 +1,6 @@
 // 1. Estilos
 import "./App.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 // 2. Componentes de Terceros (Librerías)
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import {
