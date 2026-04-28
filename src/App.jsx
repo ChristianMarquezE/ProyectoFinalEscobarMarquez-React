@@ -1,17 +1,17 @@
-import "bootstrap/dist/css/bootstrap.min.css"; // ¡Importante!
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // 1. Componentes de Bootstrap
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 // 2. React Router
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 // 3. Tus Contextos
 import { CartContextProvider } from "./components/Context/cartContext";
 import { TicketContextProvider } from "./components/Context/ticketContext";
 
-// 4. Tus Componentes Locales (Importa solo los que uses)
+// 4. Tus Componentes Locales
 import HeaderTitle from "./components/NavBar/HeaderTitle/HeaderTitle";
 import SocialIcons from "./components/NavBar/SocialIcons/SocialIcons";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
@@ -27,25 +27,20 @@ function App() {
         <BrowserRouter
           future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
         >
-          {/* NAVBAR REESTRUCTURADO */}
           <Navbar expand="lg" className="bg-body-tertiary" collapseOnSelect>
             <Container>
-              {/* Logo / Título */}
               <Navbar.Brand as={Link} to="/">
                 <HeaderTitle />
               </Navbar.Brand>
 
-              {/* Botón Hamburguesa */}
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-              {/* Contenido colapsable */}
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link as={Link} to="/">
                     Inicio
                   </Nav.Link>
 
-                  {/* Reemplazo de MenuPlegable con NavDropdown */}
                   <NavDropdown title="Colecciones" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/coleccion/praia">
                       Praia
@@ -71,6 +66,7 @@ function App() {
                     </NavDropdown.Item>
                   </NavDropdown>
 
+                  {/* IMPORTANTE: El "to" debe empezar con / para ser una ruta absoluta */}
                   <Nav.Link as={Link} to="/category/joyeria">
                     Joyería
                   </Nav.Link>
@@ -85,7 +81,6 @@ function App() {
                   </Nav.Link>
                 </Nav>
 
-                {/* Iconos sociales o CartWidget */}
                 <div className="d-flex align-items-center">
                   <SocialIcons />
                 </div>
@@ -93,7 +88,6 @@ function App() {
             </Container>
           </Navbar>
 
-          {/* RUTAS (Sin cambios) */}
           <Routes>
             <Route
               path="/"
@@ -101,14 +95,19 @@ function App() {
                 <ItemListContainer greeting="Productos de Diseñadora Profesional:" />
               }
             />
+
+            {/* Verifica que en ItemListContainer uses useParams() para capturar 'catid' */}
             <Route
               path="/category/:catid"
               element={<ItemListContainer greeting="Compras por categoría" />}
             />
+
+            {/* Verifica que en ItemListContainer uses useParams() para capturar 'colid' */}
             <Route
               path="/coleccion/:colid"
               element={<ItemListContainer greeting="Compras por colección" />}
             />
+
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartContainer />} />
             <Route path="/contacto" element={<Contacto />} />
